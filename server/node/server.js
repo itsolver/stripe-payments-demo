@@ -7,7 +7,7 @@
 
 'use strict';
 
-const config = require('../config');
+const config = require('./config');
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');

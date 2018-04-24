@@ -6,7 +6,10 @@
 'use strict';
 
 // Load environment variables from the `.env` file.
-require('dotenv').config();
+const fs = require('fs');
+const path_to_env = fs.existsSync('../../.env') ? '../../.env' : '.env';
+
+require('dotenv').config({path: path_to_env});
 
 module.exports = {
   // Default country for the checkout form.
