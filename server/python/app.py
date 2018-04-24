@@ -212,3 +212,4 @@ def webhook_received():
 if __name__ == 'main':
     load_dotenv(find_dotenv())
     stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
+    stripe.api_version = '2018-02-06'
