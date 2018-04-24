@@ -1,0 +1,56 @@
+"""
+inventory_manage.py
+Stripe Payments Demo. Created by Adrienne Dreyfus (@adrind)
+
+A small wrapper class that calls the Stripe SDK to manage Products and Orders.
+If you manage your Products and SKUs in a different way, you can override these methods.
+"""
+
+import stripe
+import os
+from functools import reduce
+from stripe_types import Order, Product
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
+stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
+stripe.api_version = os.getenv('STRIPE_API_VERSION')
+
+
+class InventoryMngr:
+    @staticmethod
+    def create_order(currency: str, items: list, email: str, shipping: dict) -> Order:
+        return stripe.Order.create(currency=currency, items=items, email=email, shipping=shipping,
+                                   metadata={'status': 'created'})
+
+    @staticmethod
+    def retrieve_order(order_id: str) -> Order:
+        return stripe.Order.retrieve(order_id)
+
+    @staticmethod
+    def update_order(properties: dict, order: Order = None, order_id: str = None) -> Order:
+        if not order:
+            if not order_id:
+                print('Error when fetching order -- no id or object given')
+            order = InventoryMngr.retrieve_order(order_id)
+
+        order.update(properties)
+        return order
+
+    @staticmethod
+    def list_products() -> [Product]:
+        return stripe.Product.list(limit=3)
+
+    @staticmethod
+    def retrieve_product(product_id) -> Product:
+        return stripe.Product.retrieve(product_id)
+
+    @staticmethod
+    def products_exist(product_list: [Product]) -> bool:
+        valid_products = ['increment', 'shirt', 'pins']
+        product_list_data = product_list['data']
+
+        return reduce(lambda acc, product: acc and len(product_list_data) == 3 and product['id'] in valid_products,
+                      product_list['data'],
+                      len(product_list_data) > 0)
