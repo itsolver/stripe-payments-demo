@@ -52,6 +52,10 @@ The [Sources API](https://stripe.com/docs/sources) provides a single integration
 
 ![Stripe Payment Settings](public/images/screenshots/stripe-payments-settings.png)
 
+## How to run
+
+The frontend code of the demo is located in `public/` and two implementations of a server can be found in `server/`. Pick the language you're most familiar with (JavaScript or Python) and follow the steps in the appropriate README. 
+
 ## Credits
 
 * Code: [Romain Huet](https://twitter.com/romainhuet) and [Thorsten Schaeff](https://twitter.com/schaeff_t)
