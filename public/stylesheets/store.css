@@ -837,7 +837,7 @@ button:active, a.button:active {
 
   header {
     background: #fff url(/images/logo.svg) center center no-repeat;
-    background-size: auto 39px;
+    background-size: auto 15px;
   }
   header svg {
 
