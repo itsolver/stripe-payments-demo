@@ -225,27 +225,26 @@ router.post('/orders', async (req, res, next) => {
   });
   
   // Dynamically create a 3D Secure source.
-//   const dynamic3DS = async (source, order, req) => {
-//     // Check if 3D Secure is required, or trigger it based on a custom rule (in this case, if the amount is above a threshold).
-// TO DO: resolve error "Reassigning parameter 'source' is forbidden."
-//     if (source.card.three_d_secure === 'required' || order.amount > 5000) {
-//       source = await stripe.sources.create({
-//         amount: order.amount,
-//         currency: order.currency,
-//         type: 'three_d_secure',
-//         three_d_secure: {
-//           card: source.id,
-//         },
-//         metadata: {
-//           order: order.id,
-//         },
-//         redirect: {
-//           return_url: req.headers.origin,
-//         },
-//       });
-//     }
-//     return source;
-//   };
+  const dynamic3DS = async (source, order, req) => {
+    // Check if 3D Secure is required, or trigger it based on a custom rule (in this case, if the amount is above a threshold).
+    if (source.card.three_d_secure === 'required' || order.amount > 5000) {
+      source = await stripe.sources.create({
+        amount: order.amount,
+        currency: order.currency,
+        type: 'three_d_secure',
+        three_d_secure: {
+          card: source.id,
+        },
+        metadata: {
+          order: order.id,
+        },
+        redirect: {
+          return_url: req.headers.origin,
+        },
+      });
+    }
+    return source;
+  };
   
   /**
    * Routes exposing the config as well as the ability to retrieve products and orders.
