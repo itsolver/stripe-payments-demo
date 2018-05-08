@@ -273,14 +273,14 @@ router.post('/orders', async (req, res, next) => {
   router.get('/products', async (req, res) => {
     const productList = await products.list();
     // Check if products exist on Stripe Account.
-    // if (products.exist(productList)) {
+    if (products.exist(productList)) {
       res.json(productList);
-    //} else {
+    } else {
       // We need to set up the products.
       //await setup.run();
-    //  console.log("We need to set up the products.");
-   //   res.json(await products.list());
-    //}
+      console.log("Products don't exist. Add products in Stripe Dashboard.");
+      res.json(await products.list());
+    }
   });
   
   // Retrieve a product by ID.
