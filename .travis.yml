@@ -1,0 +1,40 @@
+language: ruby
+rvm:
+- 2.4.1
+dist: trusty
+sudo: required
+branches:
+  only:
+  - master
+cache:
+  directories:
+  - node_modules
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  # $FIREBASE_API_TOKEN
+  - secure: "SFGbOftdmHNVUKSxpTghHBDNellxGhUocifw9obbRduCMYUtsAIgZO7nXnOHiPSUT9dP0JjCtfl4x2Y9NGB8gtJUDeYTI7LL5AZ5RnF1MQ66nNE+bCnG77+9wyqWT05CpFemm8vfsAHfbR+3Boo0JYPp6BiDnw2nT2byQQ7cfFuM2lIbfokxNVFeq4wbFEOemfeunVMHbrE9Vu/E5VyeUvnjhbQzb5UKdJdg1l+JjLjVGAwfHLyq9N9V2Ey7IlJCMQIfnUy0au9zPB7yauock2sm0HeguiTUKOiQqk11ojbFkVf03MODExLdHvhzY/APN4n6y6XuazV8S5T/AGc/f0zl1n3a9oYPbwJKqHBfKuQx34BomF0godIrDuL5ZjByT+mpghHWsSb69EYmZspKobnQ2NEiXsROysKjn+Td2bj06ep8WKI9fAYC83kh7KHmRdbFb86lXPdGJR4D/W7QmqbSAx4tcy29Dlrb5/26rcEyq6QDTPjEXRlw71SinxvgiqF5cWXOTslz99xkzDKLJkEGnUaQWe/iPe9uYkBUJWJjPjJHHuD3zBdPB4hvk+rF9rbplCmGbpZYNR5YQw0piJ92cmj0LlyYh13LDuJ3RSsG2BiRzcazv+z1EwkmCwvgYY4Mfe+tqxvP8B5hRU/AfP2h7Si8bRHwcwL+GuxVHM8="
+  # $STRIPE_* TEST TOKENS
+  - secure: "XvzAlFV1WN+jTrLYKGiUe3gVX7tS2rWNodiDdLppT3KKzQTHoGzHc3aP7AXdgSDF/ZTetACzxW6UJZ+Amgdn7QcMOF+RWugytk5frMCy49df9IaBqsZm5Z6vkk9CtgLg9lbO6IMJVDFuRuKSr2TLPeNYovS2j9W1Vrpg6kExsTvynOTBuLLzXPNyC8Rv/fyxCw8UJ/WUZSuPL1iYE5uVRWa1pdHW+45N05dr7mWbZplK87fGwu7+2QUxzaD3dcfRGAwDt3MQe/fK4t6smOgbxsfgF9H6mlD5tOj0vjtVLnqA72o7hr7/6PvGKi/C1bf4wTJbfMMbaJMOt/ehPjH6mOGgBgesNTFhODvf4xyGvXdk3xeh8DkkpEADdRyXifsu8i+xJW2VZ0BGAck2D9hxaPacde2v5nUlt/fQ0icBm+B2DiPtQj1y+CgF12Mr5ezNxN/Ik08YYQ8Azbyke2XPALIBlCronantYDI2cTiovMtTNhW/cci13p0EHpIT1FNXFSvXC3EzlYUa2AXlVLbecUCYjOy3MlutdN/ABqIVyvBnN2+wAo1Y4jVPxjljDzzTl6kOAbmxJuiF9+KwIisUQgVaulxUc0SthJ+BISDoibvGwX8pco+65nEqhIbvRSUCPwk1gW/sn3QambCTEabO4TIleryvqkCtyKMp9vTjlGg="
+  - secure: "sH9b0yTwHDcBKzwyFLUo9kIV2+zts8SUnlv08Z43nzp7RRiDZXUIxJ13uIsag56y+K66QpkjUWJB80QlUj50N6q0Zptue9OMWzFvphBfW0BGRY/e/rePKmNqFekoilCGFNKtc//hVUrykgb539rbMPnGLKt6yGb9rHlxHsJa2+XxrMKpPbiZvfRsD3FVfMeWeLDLnPEw17Kz/kqoVpL0XHdf/Tm1V9MQME69YufwidsmYY1IEOPO1chQj9D3GzS6hl/YqjvN5C2TuANAQgN97fBcoeY5mlR0I0V4r2MillsW1XoYsLCqEjtCTHPTMh5lvyhce8hYghKBegtWSsMy/SImQ7sMk1D9RUtsvc5G18/ZYMXFrZcUL7fPpfGK/u5blMP0j294q7JLGOcsSmAeJq00LnTy5fRW5F6nGFIq3YqU3ymUyDp87lY4gVdzXbh4X4apl8Zcf9KpTUb0+DttTtg/XlNaU0ONSqCS1iY3XTcKgYcF+fqW2GqBB8X1RQEPaGrHemLZqqrUC3v7XkmDXTx958ADw5xgEmClJhkq49z3pMynBZxF6ArRDrGITENzp2RqkG0BIpsNX8sax0dGJV7eqy+sB7J7U7mrOJFV8+chAC56cvuomACkMN8RlNhiFFkRJcaBH55O/NLKarZ9GVnxiCsA4uB1FNEkCUUND4E="
+  - secure: "IROERna7eyv2eDRlFcQfEq00H4eVrx42whdvO/reTF2JyWBG19mCGZpdUWIP5WJx47AX8lHNh00RC9pqsfTM5d8AJ043GGRog1WEv8iIoSOvZHgwudfsIwMa172NkH3hAt/A2u8GzgbPLhYy61z4+SnsMQOMsYZ2lMY4yB4IVWM8nZuCP3PVZ90x8kRcPR4lJaiXdRd5Mknfme65mQFOjq8M9DaP/nnp0iZsEOJC+LZ8QviDRuDgJ52QST6FAMl+5zSRS5mms17YLa+8IFpQmmqlWSIViWy50Jz6VxTp7P5PAsklaJr/eB7IaHQHiOAfifM5OFtuSE8AFIhxn+7ayI2xXqgD6QbtE22fz/dGNbLZ/mvjwhHL58aeuhu0+rfn5leBUBBQFSNJqictZXtQ2mJBZ3HCNM7Eb9Ve2YDg8fvROKqaOioTMmpkpN700BLLC6fkyE73+gvuvBL1nksrcpR6Asp8LM3yqksdHq4mJE52up2IR5JKScO/NpuAWfaq6+b5GbjJcUriCCOHTYPb8hCgJFEMUIK0/ALrQA7p2LfHs0YhEDNTAuUTv+rG7Llblnw6LzZ2x9dPL8K6j6QCqiBrWvYAvzQKFHAPJSgg4mP2qY9q7AwkGWI9SDiEFCeTVIeVU5Qi/LMuoXRFSmBIQGNlsdlQm00IQzhNKi++z7o="
+  # STRIPE_* LIVE TOKENS
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+install:
+- nvm install 9.5
+- npm install -g firebase-tools
+- firebase use type-stripe-payments-demo --token "$FIREBASE_API_TOKEN"
+- firebase functions:config:set config.stripe.publishable_key="$STRIPE_PUBLISHABLE_KEY" --token "$FIREBASE_API_TOKEN"
+- firebase functions:config:set config.stripe.secret_key="$STRIPE_SECRET_KEY" --token "$FIREBASE_API_TOKEN"
+- firebase functions:config:set config.stripe.webhook_secret="$STRIPE_WEBHOOK_SECRET" --token "$FIREBASE_API_TOKEN"
+- cd functions && npm install && cd ..
+
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: "$FIREBASE_API_TOKEN"
+  project: type-stripe-payments-demo
